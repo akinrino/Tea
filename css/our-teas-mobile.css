@@ -1,0 +1,199 @@
+/* ?HTML RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    list-style: none;
+    text-decoration: none;
+}
+
+/* ?DEFINING A CUSTOM FONT */
+@font-face {
+    font-family: damn;
+    src: url("../fonts/damn/DAMN.ttf");
+}
+
+/* ?DEFINING THE FONT FAMILY AND SIZE OF THE HTML DOCUMENT */
+html {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+}
+
+/* ?STYLING THE MAIN BODY OF THE WEBSITE */
+/* Makes it easier to center the 'wrapper' section */
+body {
+    background-color: #FFCCB3;
+    color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ?STYLING THE CONTAINER DIV OF OUR WEBSITE */
+/* This is basically the div (with the class of wrapper) that
+holds all our html elements. It makes it easier to style the page
+if needed. */
+.wrapper {
+    background-color: #FFCCB3;
+    width: 100%;
+    height: 100vh;
+}
+
+/* *The first section of the page and the whole website */
+.hero-section {
+    padding: 5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ?STYLING THE HEADER SECTION OF THE WEBSITE */
+/* Defining how the links should be positioned */
+header {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    z-index: 10;
+    padding: 0 1rem;
+}
+
+/* *Styling the links on the left side of the page */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styling the checkbox the menu icon is connected to.
+Making it invisible on the page. */
+nav input {
+    display: none;
+}
+
+/* Making them positioned next to each other. Removing
+the default styling as well. */
+.menu-links {
+    font-family: damn;
+    background-color: #ffccb356;
+    /* background-color: hsl(0, 0%, 100% / 0.1); */
+    /* backdrop-filter: blur(1rem); */
+    color: #222222;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 65px;
+
+
+    width: 100%;
+    height: 0vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    transition: all 1s ease;
+}
+
+/* Styling the link items that contain the actual navigation links
+to the different pages of the website. */
+.menu-links li {
+    opacity: 0;
+    line-height: 2rem;
+    transition: all .5s;
+}
+
+/* Styling the anchor tags that holds the navigation links. */
+.menu-links a {
+    color: #222222;
+}
+
+/* Creating and styling a pseudo-class for when the menu
+icon is clicked. Making the navigation section visible. */
+#check:checked~.menu-links {
+    /* display: block; */
+    height: 100vh;
+    padding: 4rem 0 0;
+}
+
+/* Creating and styling a pseudo-class for when the menu
+icon is clicked. Making the list items visible. Gives
+it an animated effect. */
+#check:checked~.menu-links li {
+    opacity: 1;
+}
+
+/* *Styling the logo svg */
+.logo svg {
+    width: 150px;
+    height: 30px;
+    transition: .5s ease;
+}
+
+/* ?THE HERO SECTION */
+/* *Styling the universal 'button' class for links. */
+.button {
+    background-color: #1C6758;
+    border: 2px solid #222222;
+    padding: .5rem 1rem;
+}
+
+.welcome-message h1 {
+    font-family: damn;
+    font-size: 4.5em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-text {
+    line-height: 2rem;
+    word-spacing: .5rem;
+    font-size: 1.5em;
+}
+
+.welcome-text p {
+    margin-bottom: 1.5rem;
+}
+
+.welcome-message a {
+    text-decoration: none;
+    color: #222222;
+    font-family: damn;
+    text-transform: uppercase;
+    font-size: 1.5;
+}
+
+
+/* ?STYLING THE TEA SECTION */
+.tea-section {
+    padding: 1rem;
+}
+
+.tea {
+    margin: 4rem 0 0;
+}
+
+.tea h2 {
+    font-family: damn;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+.tea-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tea-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #333;
+}

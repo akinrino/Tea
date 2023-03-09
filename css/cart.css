@@ -1,0 +1,226 @@
+/* ?DEFINING A CUSTOM FONT */
+@font-face {
+    font-family: damn;
+    src: url("../fonts/damn/DAMN.ttf");
+}
+
+/* ?HTML RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ?DEFINING THE FONT FAMILY AND SIZE OF THE HTML DOCUMENT */
+html {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    /* making the scrollbar invisible for Firefox */
+    scrollbar-width: none;
+}
+
+/* ?STYLING THE MAIN BODY OF THE WEBSITE */
+/* Makes it easier to center the 'wrapper' section */
+body {
+    /* background-color: #FFCCB3; */
+    color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* making the scrollbar invisible for edge */
+    -ms-overflow-style: none;
+}
+
+/* Setting and styling a pseudoelement for the body.
+Basically making the scrollbar invisible. Doesn't always
+work, though. */
+body::-webkit-scrollbar{
+    display: none;
+    width: 0 !important;
+}
+
+/* ?STYLING THE CONTAINER DIV OF OUR WEBSITE */
+/* This is basically the div (with the class of wrapper) that
+holds all our html elements. It makes it easier to style the page
+if needed. */
+.wrapper {
+    background-color: #1C6758;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+/* *The first section of the page and the whole website */
+.hero-section {
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+/* ?STYLING THE HEADER SECTION OF THE WEBSITE */
+/* Defining how the links should be positioned */
+header {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    z-index: 10;
+    padding: 0 1rem;
+}
+
+.mobile-links {
+    display: none;
+}
+
+/* *Styling the links on the left side of the page */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Making them positioned next to each other. Removing
+the default styling as well. */
+nav ul {
+    list-style: none;
+    box-shadow: 0 0 1px black;
+}
+
+/* Styling the list that holds the logo */
+nav ol {
+    list-style: none;
+}
+
+/* *Styling the list items within the ul. */
+/* Making them all fit in the same line... */
+nav ul li {
+    float: left;
+}
+
+/* *Styling the anchor tags within the list items */
+nav a {
+    display: block;
+}
+/* Setting their padding, font-size and removing 
+the default anchor styling. (Just for the links without
+the 'logo' class).*/
+nav ul a:not(.logo) {
+    text-decoration: none;
+    text-shadow: 0 0 1px black;
+    font-size: .75em;
+    text-transform: uppercase;
+    font-weight: 100;
+    padding: .5rem .75rem;
+    border: 1px solid #222222;
+    color: #222222;
+    transition: all .5s ease;
+}
+
+/* Setting and styling a pseudoclass for the links that
+are not active (don't have the 'active' or 'logo' class) */
+nav ul a:hover:not(.active, .logo) {
+    background-color: #7897AB;
+    color: white;
+}
+
+/* Setting and styling a pseudoclass for the links that
+are active */
+nav ul a.active {
+    background-color: #554994;
+    color: white;
+}
+
+/* *Styling the logo svg */
+.logo svg {
+    width: 150px;
+    height: 30px;
+    transition: .5s ease;
+}
+
+/* Setting and styling a pseudoclass for the logo.
+Increasing its width and height */
+.logo svg:hover {
+    width: 155px;
+    height: 32px;
+}
+
+/* ?STYLING FOR THE HERO SECTION OF THE PAGE */
+
+#error-message {
+    position: relative;
+    cursor: default;
+}
+
+/* Styling for the sad face image */
+#error-message img {
+    opacity: 50%;
+    transition: .5s ease;
+}
+
+/* Styling fo the h2 tag */
+#error-message h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: damn;
+    font-size: 4em;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0 1px #333;
+    transition: .5s linear;
+}
+
+/* Setting and styling a pseudoclass for the h2
+tag when it's hovered over. */
+#error-message:hover h2 {
+    font-size: 5em;
+}
+
+
+/* Intro Animation */
+.overlay {
+    position: absolute;
+    z-index: 999;
+    background: #1C6758;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: left;
+}
+
+@keyframes reveal {
+    from {
+        transform: scaleX(1);
+    }
+
+    to {
+        transform: scaleX(0);
+    }
+}
+
+main {
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+
+@media screen and (max-width: 1001px) {
+    .desktop-links {
+        display: none;
+    }
+
+    .mobile-links {
+        display: block;
+    }
+}

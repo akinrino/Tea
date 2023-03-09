@@ -1,0 +1,594 @@
+/* ?DEFINING A CUSTOM FONT */
+@font-face {
+    font-family: damn;
+    src: url("../fonts/damn/DAMN.ttf");
+}
+
+/* ?HTML RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ?DEFINING THE FONT FAMILY AND SIZE OF THE HTML DOCUMENT */
+html {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    /* making the scrollbar invisible for Firefox */
+    scrollbar-width: none;
+}
+
+/* ?STYLING THE MAIN BODY OF THE WEBSITE */
+/* Makes it easier to center the 'wrapper' section */
+body {
+    /* background-color: #FFCCB3; */
+    color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* making the scrollbar invisible for edge */
+    -ms-overflow-style: none;
+}
+
+/* Setting and styling a pseudo-element for the body.
+Basically making the scrollbar invisible. Doesn't always
+work, though. */
+body::-webkit-scrollbar{
+    display: none;
+    width: 0 !important;
+}
+
+
+/* ?INTRO ANIMATION */
+.overlay {
+    position: absolute;
+    z-index: 999;
+    background: #1C6758;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: left;
+}
+
+@keyframes reveal {
+    from {
+        transform: scaleX(1);
+    }
+
+    to {
+        transform: scaleX(0);
+    }
+}
+
+main {
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* ?STYLING THE CONTAINER DIV OF OUR WEBSITE */
+/* This is basically the div (with the class of wrapper) that
+holds all our html elements. It makes it easier to style the page
+if needed. */
+.wrapper {
+    background-color: #FFCCB3;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+/* *The first section of the page and the whole website */
+.hero-section {
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+/* ?STYLING THE HEADER SECTION OF THE WEBSITE */
+/* Defining how the links should be positioned */
+header {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    z-index: 10;
+    padding: 0 1rem;
+}
+
+/* Hiding the mobile navigation links */
+.mobile-links {
+    display: none;
+}
+
+/* *Styling the links on the left side of the page */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Making them positioned next to each other. Removing
+the default styling as well. */
+nav ul {
+    list-style: none;
+    box-shadow: 0 0 1px black;
+}
+
+/* Styling the list that holds the logo */
+nav ol {
+    list-style: none;
+}
+
+/* *Styling the list items within the ul. */
+/* Making them all fit in the same line... */
+nav ul li {
+    float: left;
+}
+
+/* *Styling the anchor tags within the list items */
+nav a {
+    display: block;
+}
+/* Setting their padding, font-size and removing 
+the default anchor styling. (Just for the links without
+the 'logo' class).*/
+nav ul a:not(.logo) {
+    text-decoration: none;
+    text-shadow: 0 0 1px black;
+    font-size: .75em;
+    text-transform: uppercase;
+    font-weight: 100;
+    padding: .5rem .75rem;
+    border: 1px solid #222222;
+    color: #222222;
+    transition: all .5s ease;
+}
+
+/* Setting and styling a pseudo-class for the links that
+are not active (don't have the 'active' or 'logo' class) */
+nav ul a:hover:not(.active, .logo) {
+    background-color: #1C6758;
+    color: white;
+}
+
+/* Setting and styling a pseudo-class for the links that
+are active */
+nav ul a.active {
+    background-color: #554994;
+    color: white;
+}
+
+/* *Styling the logo svg */
+.logo svg {
+    width: 150px;
+    height: 30px;
+    transition: .5s ease;
+}
+
+/* Setting and styling a pseudo-class for the logo.
+Increasing its width and height */
+.logo svg:hover {
+    width: 155px;
+    height: 32px;
+}
+
+
+
+/* !STYLING FOR THE 'HOME' PAGE */
+.home-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    /* background-image: url("../images/SVG/Buy-coffee.svg"); */
+    /* background-repeat: no-repeat; */
+}
+
+#background {
+    margin: 8rem auto 2rem;
+    cursor: default;
+    display: flex;
+}
+
+#background img {
+    z-index: -10;
+
+}
+
+#background div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 1px #333;
+}
+
+#background h1 {
+    font-family: damn;
+    font-size: 8em;
+    text-transform: uppercase;
+    transition: all .5s;
+}
+
+#background h1:hover {
+    font-size: 9em;
+}
+
+#background a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #222222;
+    font-family: damn;
+    font-size: 2em;
+    margin: 1rem 0;
+    transition: all .5s;
+}
+
+#background a:hover {
+    background-color: #554994;
+    font-size: 2.5em;
+}
+
+/* Defining the 'button' class */
+.button {
+    background-color: #1C6758;
+    border: 2px solid #222222;
+    padding: .5rem 1rem;
+}
+
+
+/* *Styling the magazine section */
+#magazine-section {
+    display: flex;
+    scroll-snap-align: start;
+}
+
+/* THE LEFT SIDE */
+/* Styling the left side of the magazine 
+section. */
+.magazine-section-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 1px #333;
+}
+
+/* Styling the div that hold the content
+of the left magazine section. */
+.magazine-section-left div {
+    transform: translateX(4rem);
+    transition: .5s ease;
+}
+
+/* Setting and styling a pseudo-class for
+the div. Just an animated effect. */
+.magazine-section-left div:hover {
+    transform: translate(5rem, -1rem)
+}
+
+/* Setting and styling a pseudo-class for
+the h2 in the div, when it's hovered
+over. */
+.magazine-section-left div:hover h2 {
+    font-size: 4.5em;
+}
+
+/* Styling the h2 inside the div */
+.magazine-section-left h2 {
+    font-family: damn;
+    text-transform: uppercase;
+    font-size: 4em;
+    transition: .5s ease;
+}
+
+/* Styling the paragraph inside the
+div. */
+.magazine-section-left p {
+    line-height: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Styling the a tag that acts as a 
+button. */
+.magazine-section-left a {
+    text-decoration: none;
+    color: #222222;
+    font-family: damn;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    transition: .5s ease;
+}
+
+/* Setting and styling a pseudo-class
+for when the a element is hovered over. */
+.magazine-section-left a:hover {
+    background-color: #554994;
+    font-size: 1.9em;
+}
+
+/* THE RIGHT SIDE */
+/* Styling the right side of the magazine
+section. */
+.magazine-section-right {
+    width: 60%;
+    height: 100%;
+    background-color: #7897AB;
+    transition: all .5s ease 0s;
+}
+
+/* Setting and styling a pseudo-class for
+when the right side is hovered over. */
+.magazine-section-right:hover {
+    width: 62%;
+}
+
+/* Styling the image in the right side. */
+.magazine-section-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* *Styling the 'coming soon' section */
+#coming-soon-section {
+    display: flex;
+    scroll-snap-align: start;
+    height: 100vh;
+}
+
+/* STYLING THE LEFT SIDE */
+.coming-soon-section-left {
+    width: 60%;
+    height: 100%;
+    background-color: #7897AB;
+    text-align: center;
+}
+
+.coming-soon-section-left img {
+    width: 85%;
+    height: 100%;
+    object-fit: contain;
+    transition: all .5s ease 0s;
+}
+
+.coming-soon-section-left:hover img {
+    transform: translateX(3rem);
+}
+
+/* STYLING THE RIGHT SIDE */
+.coming-soon-section-right {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 1px #333;
+}
+
+/* Styling the div that hold the content
+of the right coming soon section. */
+.coming-soon-section-right div {
+    transform: translateX(-4rem);
+    transition: .5s ease;
+}
+
+/* Setting and styling a pseudo-class for
+the div. Just an animated effect. */
+.coming-soon-section-right div:hover {
+    transform: translate(-5rem, -2rem)
+}
+
+/* Styling the h2 inside the div */
+.coming-soon-section-right h2 {
+    font-family: damn;
+    text-transform: uppercase;
+    font-size: 5em;
+    transition: all .5s ease 0s;
+}
+
+/* Setting and styling a pseudo-class for
+the h2 in the div, when it's hovered
+over. */
+.coming-soon-section-right div:hover h2 {
+    font-size: 5.5em;
+}
+
+/* Styling the h3 inside the div */
+.coming-soon-section-right h3 {
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 2rem;
+}
+
+/* Styling the paragraph inside the
+div. */
+.coming-soon-section-right p {
+    line-height: 2rem;
+}
+
+/* *Styling the Register section */
+#register-section {
+    scroll-snap-align: start;
+    background-color: #1C6758;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem;
+}
+
+/* Styling the h2 tag */
+#register-section h2 {
+    font-family: damn;
+    font-size: 4em;
+    text-transform: uppercase;;
+}
+
+/* Styling the subheading in the 
+register section. */
+#register-section h3 {
+    font-style: italic;
+    text-align: center;
+}
+
+/* Styling the form of the register
+section. */
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Styling the input tags */
+input {
+    width: 100%;
+    padding: 1rem;
+    font-family: damn;
+    font-size: 2em;
+    border: 1px solid #222222;
+    background-color: #1c67589c;
+    color: #222222;
+    box-shadow: 0 0 1px #333;
+    text-shadow: 0 0 1px black;
+    transition: all .5s ease 0s;
+}
+
+/* Setting and styling a pseudo-class
+for when an input field is hovered over. */
+input:hover {
+    font-size: 2.2em;
+}
+
+/* Setting and styling a pseudo-class
+for when an input field is focused on. */
+input:focus {
+    outline: none;
+}
+
+/* Styling the input with the 'type'
+attribute set to 'text'.
+This is the 'Name' field. */
+input[type='text'] {
+    text-transform: capitalize;
+}
+
+/* Styling the a tag that serves
+as the button */
+form a {
+    text-decoration: none;
+    font-family: damn;
+    text-transform: uppercase;
+    font-size: 3em;
+    text-align: center;
+    color: #222222;
+    transition: all .5s ease 0s;
+}
+
+form button {
+    text-decoration: none;
+    font-family: damn;
+    text-transform: uppercase;
+    font-size: 3em;
+    text-align: center;
+    color: #222222;
+    transition: all .5s ease 0s;
+}
+/* Setting and styling a pseudo-class
+for the a tag when it's hovered over. */
+form a:hover {
+    background-color: #554994;
+    font-size: 3.2em;
+}
+
+form button:hover {
+    background-color: #554994;
+    font-size: 3.2em;
+}
+
+/* Setting and styling a pseud-class
+for when the a tag is clicked. */
+form a:active {
+    background-color: #7897AB;
+}
+
+form button:active {
+    background-color: #7897AB;
+}
+
+
+/* *Styling the footer of the website */
+#footer-section {
+    height: 55vh;
+    scroll-snap-align: start;
+    background-color: #554994;
+    padding: 2rem 2rem 1rem;
+}
+
+/* Styling the footer. */
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: 2rem;
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* Styling the div element that's the 
+immediate child of the footer. */
+footer>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Styling the bottom logo. */
+#footer-logo {
+    width: 300px;
+    height: 100px;
+}
+
+/* Styling the div that holds the social
+media links */
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling the list that holds the
+social media icons. */
+.socials ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Styling the actual social media icons */
+.socials img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Styling the copyright text. */
+.copyright p {
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 1px #333;
+}
